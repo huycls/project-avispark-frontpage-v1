@@ -1,0 +1,46 @@
+---
+description: Atomic design structure and component file layout
+alwaysApply: true
+---
+
+# Atomic design
+
+Đặt UI dùng lại trong `components/`, xếp từ nhỏ đến lớn. Page của Next.js nằm trong `app/` và chỉ ghép template, không nhét UI vào `app/` ngoài page và layout route.
+
+Thứ tự thư mục và chiều phụ thuộc (chỉ import cùng cấp hoặc cấp nhỏ hơn):
+
+1. `atoms` — một việc, không phụ thuộc component khác. Ví dụ: `Button`, `Title`, `Input`, `Icon`.
+2. `molecules` — nhóm atom có một nhiệm vụ. Ví dụ: `SearchField`, `NavItem`.
+3. `organisms` — một vùng giao diện. Ví dụ: `Header`, `Footer`, `Hero`, `SiteLayout`.
+4. `templates` — khung trang, ghép organism, chưa gắn data của page. Ví dụ: `HomeTemplate`.
+
+Mỗi component mới dùng đúng cấu trúc sau, tên thư mục PascalCase, một component một thư mục:
+
+```
+components/{atomic_folder}/{ComponentName}/index.js
+```
+
+```js
+// components/atoms/Button/index.js
+export default function Button({ children }) {
+  return <button type="button">{children}</button>;
+}
+```
+
+```js
+// components/organisms/SiteLayout/index.js
+import Header from "@/components/organisms/Header";
+
+export default function SiteLayout({ children }) {
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
+}
+```
+
+- File component là `index.js`, export default function.
+- Không tạo `Button.js` nằm trực tiếp trong `atoms/`.
+- Không để molecule import organism, atom import molecule.

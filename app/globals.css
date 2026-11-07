@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-neutral-black: #263238;
+  --color-neutral-d-grey: #4d4d4d;
+  --color-neutral-grey: #717171;
+  --color-neutral-l-grey: #89939e;
+  --color-neutral-grey-blue: #abbed1;
+  --color-neutral-silver: #f5f7fa;
+  --color-neutral-white: #ffffff;
+  --color-ink: #0e1114;
+
+  --color-primary: #4caf4f;
+  --color-secondary: #263238;
+  --color-info: #2194f3;
+
+  --color-shade-1: #43a046;
+  --color-shade-2: #388e3b;
+  --color-shade-3: #237d31;
+  --color-shade-4: #1b5e1f;
+  --color-shade-5: #103e13;
+
+  --color-tint-1: #66bb69;
+  --color-tint-2: #81c784;
+  --color-tint-3: #a5d6a7;
+  --color-tint-4: #c8e6c9;
+  --color-tint-5: #e8f5e9;
+
+  --color-warning: #fbc02d;
+  --color-error: #e53835;
+  --color-success: #2e7d31;
+
+  --background: var(--color-neutral-white);
+  --foreground: var(--color-neutral-black);
+  color-scheme: light;
+}
+
+.dark {
+  --background: var(--color-ink);
+  --foreground: var(--color-neutral-white);
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-neutral-black: var(--color-neutral-black);
+  --color-neutral-d-grey: var(--color-neutral-d-grey);
+  --color-neutral-grey: var(--color-neutral-grey);
+  --color-neutral-l-grey: var(--color-neutral-l-grey);
+  --color-neutral-grey-blue: var(--color-neutral-grey-blue);
+  --color-neutral-silver: var(--color-neutral-silver);
+  --color-neutral-white: var(--color-neutral-white);
+  --color-ink: var(--color-ink);
+
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-info: var(--color-info);
+
+  --color-shade-1: var(--color-shade-1);
+  --color-shade-2: var(--color-shade-2);
+  --color-shade-3: var(--color-shade-3);
+  --color-shade-4: var(--color-shade-4);
+  --color-shade-5: var(--color-shade-5);
+
+  --color-tint-1: var(--color-tint-1);
+  --color-tint-2: var(--color-tint-2);
+  --color-tint-3: var(--color-tint-3);
+  --color-tint-4: var(--color-tint-4);
+  --color-tint-5: var(--color-tint-5);
+
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-success: var(--color-success);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 15px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+main {
+  min-height: 100%;
 }
