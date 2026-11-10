@@ -30,7 +30,7 @@ const THEMES = {
 
 const PILLS = {
   dark: { color: "#f4f4f5", hover: "rgba(255, 255, 255, 0.08)", shadow: 0.4 },
-  light: { color: "#0984e3", hover: "rgba(24, 24, 27, 0.06)", shadow: 0.2 },
+  light: { color: "#8b5cf6", hover: "rgba(24, 24, 27, 0.06)", shadow: 0.2 },
 };
 
 const SIZES = { sm: "gooey-nav--sm", md: "gooey-nav--md", lg: "gooey-nav--lg" };

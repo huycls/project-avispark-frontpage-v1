@@ -1,0 +1,60 @@
+.stage {
+  perspective: 1200px;
+}
+
+.card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.floatA {
+  animation: floatA 6.5s ease-in-out infinite;
+}
+
+.floatB {
+  animation: floatB 7.5s ease-in-out infinite;
+  animation-delay: -1.4s;
+}
+
+.floatC {
+  animation: floatC 8s ease-in-out infinite;
+  animation-delay: -2.6s;
+}
+
+@keyframes floatA {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(-4deg);
+  }
+}
+
+@keyframes floatB {
+  0%,
+  100% {
+    transform: translateY(0) rotate(4deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(6deg);
+  }
+}
+
+@keyframes floatC {
+  0%,
+  100% {
+    transform: translateY(0) rotate(8deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(10deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floatA,
+  .floatB,
+  .floatC {
+    animation: none;
+  }
+}
